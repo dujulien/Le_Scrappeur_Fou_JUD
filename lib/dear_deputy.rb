@@ -38,12 +38,18 @@ def get_deputy_names
 	return deputy_names
 end
 
-puts get_deputy_names
+def create_hash
+	deputy_email_array = []
+	deputy_names = get_deputy_names
+	all_deputy_email = get_all_deputy_email
+	for i in 0..(deputy_names.size-1) do
+		deputy_email_array << Hash['first_name' => get_deputy_names[i].split[1],'last_name' => get_deputy_names[i].split[2], 'email' => all_deputy_email[i]]
+	end
+	return deputy_email_array
+end 
 
+puts create_hash
 
-# def hash_email
-# 	hash_townhall_email = Hash[get_town_names.zip get_all_townhall_email]
-# end
 
 
 
